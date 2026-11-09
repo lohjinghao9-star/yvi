@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurelia Digital | Grand Web Experiences</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #07070f;
+      --gold: #c9a227;
+      --gold-light: #e8d48b;
+      --text: #f5f5f0;
+      --muted: #a0a0b0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    header {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      padding: 18px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(7,7,15,0.75); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,162,39,0.15);
+    }
+    .logo { font-family: 'Cinzel', serif; font-size: 1.6rem; font-weight: 700; letter-spacing: 2px; color: var(--gold); }
+    nav a { color: var(--text); text-decoration: none; margin-left: 28px; font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
+    nav a:hover { color: var(--gold); }
+    .hero {
+      height: 100vh; position: relative;
+      display: flex; align-items: center; justify-content: center; text-align: center;
+    }
+    #canvas-wrap { position: absolute; inset: 0; z-index: 0; }
+    .hero-content { position: relative; z-index: 1; max-width: 800px; padding: 0 20px; }
+    .hero h1 { font-family: 'Cinzel', serif; font-size: clamp(2.8rem, 6vw, 4.8rem); font-weight: 700; letter-spacing: 1px; margin-bottom: 16px; }
+    .hero p { font-size: 1.25rem; color: var(--muted); margin-bottom: 36px; font-weight: 300; }
+    .btn {
+      display: inline-block; padding: 14px 36px;
+      background: linear-gradient(135deg, var(--gold), #a67c00);
+      color: #111; font-weight: 600; text-decoration: none; border-radius: 4px;
+      letter-spacing: 1px; transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(201,162,39,0.35); }
+    section { padding: 100px 40px; max-width: 1200px; margin: 0 auto; }
+    h2 { font-family: 'Cinzel', serif; font-size: 2.4rem; text-align: center; margin-bottom: 16px; color: var(--gold-light); }
+    .subtitle { text-align: center; color: var(--muted); margin-bottom: 60px; font-size: 1.1rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(201,162,39,0.12);
+      padding: 36px 28px; border-radius: 12px;
+      transition: transform 0.4s ease, box-shadow 0.4s;
+      transform-style: preserve-3d;
+    }
+    .card:hover { transform: rotateY(8deg) rotateX(4deg) translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+    .card h3 { font-family: 'Cinzel', serif; font-size: 1.4rem; margin-bottom: 12px; color: var(--gold); }
+    .portfolio-item { overflow: hidden; border-radius: 12px; background: #111; }
+    .portfolio-item img { width: 100%; height: 220px; object-fit: cover; display: block; transition: transform 0.5s; }
+    .portfolio-item:hover img { transform: scale(1.08); }
+    .portfolio-item .info { padding: 20px; }
+    form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+    input, textarea {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(201,162,39,0.2);
+      padding: 14px 18px; color: white; border-radius: 6px; font-family: inherit;
+    }
+    textarea { min-height: 140px; resize: vertical; }
+    button[type="submit"] { cursor: pointer; border: none; }
+    footer { text-align: center; padding: 40px; color: var(--muted); font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05); }
+    @media (max-width: 768px) {
+      header { padding: 14px 20px; }
+      nav { display: none; } /* Add a hamburger later if needed */
+      section { padding: 70px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">AURELIA</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div id="canvas-wrap"></div>
+    <div class="hero-content">
+      <h1>Grand Digital Experiences</h1>
+      <p>We craft extraordinary websites that feel luxurious yet remain beautifully simple to use.</p>
+      <a href="#contact" class="btn">Start Your Project</a>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>Our Craft</h2>
+    <p class="subtitle">From vision to launch — design, development & 3D experiences.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Web Design</h3>
+        <p>Elegant, conversion-focused interfaces with timeless aesthetics and intuitive flow.</p>
+      </div>
+      <div class="card">
+        <h3>Development</h3>
+        <p>Clean, fast, scalable code. Custom WordPress, React, or fully bespoke solutions.</p>
+      </div>
+      <div class="card">
+        <h3>3D & Interactive</h3>
+        <p>Immersive Three.js experiences, WebGL, and micro-interactions that wow without overwhelming.</p>
+      </div>
+      <div class="card">
+        <h3>Branding & UX</h3>
+        <p>Complete visual identity, strategy, and user journeys that feel grand yet effortless.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <h2>Selected Work</h2>
+    <p class="subtitle">A glimpse of the worlds we've built.</p>
+    <div class="grid">
+      <div class="portfolio-item">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Luxury hotel">
+        <div class="info">
+          <h3>The Grand Hotel</h3>
+          <p>Luxury hospitality site with 3D room explorer.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&q=80" alt="Tech">
+        <div class="info">
+          <h3>Nova Tech</h3>
+          <p>SaaS platform with interactive product demos.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800&q=80" alt="Gallery">
+        <div class="info">
+          <h3>Atelier Gallery</h3>
+          <p>Immersive 3D art exhibition experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Let's Create Something Grand</h2>
+    <p class="subtitle">Tell us about your vision. We'll keep it simple.</p>
+    <form onsubmit="event.preventDefault(); alert('Thank you! We'll be in touch soon.');">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <textarea placeholder="Tell us about your project..."></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 Aurelia Digital — Crafted with intention.
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    const wrap = document.getElementById('canvas-wrap');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 8;
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    wrap.appendChild(renderer.domElement);
+
+    // Lights
+    scene.add(new THREE.AmbientLight(0xffffff, 0.4));
+    const point1 = new THREE.PointLight(0xc9a227, 1.2, 20);
+    point1.position.set(4, 3, 5);
+    scene.add(point1);
+    const point2 = new THREE.PointLight(0x4a90e2, 0.6, 15);
+    point2.position.set(-5, -2, 3);
+    scene.add(point2);
+
+    // Central grand object
+    const torusKnot = new THREE.Mesh(
+      new THREE.TorusKnotGeometry(1.4, 0.35, 120, 16),
+      new THREE.MeshStandardMaterial({ color: 0xc9a227, metalness: 0.7, roughness: 0.25, wireframe: false })
+    );
+    scene.add(torusKnot);
+
+    // Floating sculptures
+    const group = new THREE.Group();
+    const geos = [
+      new THREE.IcosahedronGeometry(0.6, 0),
+      new THREE.OctahedronGeometry(0.55),
+      new THREE.TetrahedronGeometry(0.7),
+      new THREE.BoxGeometry(0.8, 0.8, 0.8)
+    ];
+    for (let i = 0; i < 12; i++) {
+      const geo = geos[i % geos.length];
+      const mat = new THREE.MeshStandardMaterial({
+        color: i % 2 === 0 ? 0xc9a227 : 0xffffff,
+        metalness: 0.6,
+        roughness: 0.3,
+        wireframe: Math.random() > 0.6
+      });
+      const mesh = new THREE.Mesh(geo, mat);
+      mesh.position.set(
+        (Math.random() - 0.5) * 12,
+        (Math.random() - 0.5) * 8,
+        (Math.random() - 0.5) * 8
+      );
+      mesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, 0);
+      group.add(mesh);
+    }
+    scene.add(group);
+
+    // Stars
+    const starGeo = new THREE.BufferGeometry();
+    const starCount = 800;
+    const positions = new Float32Array(starCount * 3);
+    for (let i = 0; i < starCount * 3; i++) positions[i] = (Math.random() - 0.5) * 40;
+    starGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const stars = new THREE.Points(starGeo, new THREE.PointsMaterial({ color: 0xffffff, size: 0.035 }));
+    scene.add(stars);
+
+    // Mouse interaction
+    let mouseX = 0, mouseY = 0;
+    document.addEventListener('mousemove', (e) => {
+      mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+      mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+    });
+
+    function animate() {
+      requestAnimationFrame(animate);
+      torusKnot.rotation.x += 0.003;
+      torusKnot.rotation.y += 0.005;
+      group.rotation.y += 0.0015;
+      stars.rotation.y += 0.0004;
+      camera.position.x += (mouseX * 1.5 - camera.position.x) * 0.05;
+      camera.position.y += (mouseY * 1.2 - camera.position.y) * 0.05;
+      camera.lookAt(scene.position);
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>
